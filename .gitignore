@@ -7,6 +7,8 @@ __pycache__/
 *.so
 
 *.mm.txt
+*.ini
+
 
 try.py
 
@@ -139,4 +141,4 @@ dmypy.json
 .pyre/
 
 
-*.ini
+/desktop.ini
