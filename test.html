@@ -1,0 +1,454 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+                <link href="lib/tom-select/tom-select.css" rel="stylesheet">
+                <script src="lib/tom-select/tom-select.complete.min.js"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: white;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+             #config {
+                 float: left;
+                 width: 400px;
+                 height: 600px;
+             }
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+                <div id="select-menu" class="card-header">
+                    <div class="row no-gutters">
+                        <div class="col-10 pb-2">
+                            <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="selectNode([value]);"
+                            id="select-node"
+                            placeholder="Select node..."
+                            >
+                                <option selected>Select a Node by ID</option>
+                                
+                                    <option value="3168520230510388908">3168520230510388908</option>
+                                
+                                    <option value="2807278579993693288">2807278579993693288</option>
+                                
+                                    <option value="6830496202948361771">6830496202948361771</option>
+                                
+                                    <option value="2174036098887813298">2174036098887813298</option>
+                                
+                                    <option value="10510889753822385821">10510889753822385821</option>
+                                
+                                    <option value="197796938797543733">197796938797543733</option>
+                                
+                                    <option value="7591695040665396739">7591695040665396739</option>
+                                
+                                    <option value="104903980848174708">104903980848174708</option>
+                                
+                                    <option value="3821234056417142866">3821234056417142866</option>
+                                
+                                    <option value="15633005858985031885">15633005858985031885</option>
+                                
+                                    <option value="16793595165947415525">16793595165947415525</option>
+                                
+                                    <option value="13906867256000550868">13906867256000550868</option>
+                                
+                                    <option value="12224115070662084473">12224115070662084473</option>
+                                
+                                    <option value="12689955802454891176">12689955802454891176</option>
+                                
+                                    <option value="4210800085543001363">4210800085543001363</option>
+                                
+                                    <option value="2464763030607474037">2464763030607474037</option>
+                                
+                                    <option value="10355004591623608526">10355004591623608526</option>
+                                
+                                    <option value="16212857745313426869">16212857745313426869</option>
+                                
+                                    <option value="1752843606134085846">1752843606134085846</option>
+                                
+                                    <option value="3265949321016474269">3265949321016474269</option>
+                                
+                                    <option value="15157916783265045214">15157916783265045214</option>
+                                
+                                    <option value="2057592355455493423">2057592355455493423</option>
+                                
+                                    <option value="10243032284281801016">10243032284281801016</option>
+                                
+                                    <option value="15331830739360271440">15331830739360271440</option>
+                                
+                                    <option value="2747980271090863868">2747980271090863868</option>
+                                
+                                    <option value="16518685784448193658">16518685784448193658</option>
+                                
+                                    <option value="18371978792867013989">18371978792867013989</option>
+                                
+                                    <option value="9932701864897299105">9932701864897299105</option>
+                                
+                                    <option value="1812944034626462311">1812944034626462311</option>
+                                
+                                    <option value="13297453176152494503">13297453176152494503</option>
+                                
+                                    <option value="4385590567315623899">4385590567315623899</option>
+                                
+                                    <option value="8993201088150376922">8993201088150376922</option>
+                                
+                                    <option value="9196747973933596213">9196747973933596213</option>
+                                
+                                    <option value="14935479870787802675">14935479870787802675</option>
+                                
+                                    <option value="8814975881772454610">8814975881772454610</option>
+                                
+                                    <option value="10968151204285300267">10968151204285300267</option>
+                                
+                                    <option value="14334859214629088286">14334859214629088286</option>
+                                
+                                    <option value="2178833856123526163">2178833856123526163</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-2 pb-2">
+                            <button type="button" class="btn btn-primary btn-block" onclick="neighbourhoodHighlight({nodes: []});">Reset Selection</button>
+                        </div>
+                    </div>
+                </div>
+            
+            
+              <div id="filter-menu" class="card-header">
+                <div class="row no-gutters">
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'item')"
+                            id="select-item"
+                        >
+                        <option value="">Select a network item</option>
+                        <option value="edge">edge</option>
+                        <option value="node">node</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'property')"
+                            id="select-property"
+                        >
+                        <option value="">Select a property...</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            id="select-value"
+                        >
+                        <option value="">Select value(s)...</option>
+                    </select>
+                  </div>
+                  <div class="col-1 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="highlightFilter(filter);">Filter</button>
+                  </div>
+                  <div class="col-2 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="clearFilter(true)">Reset Selection</button>
+                  </div>
+                </div>
+              </div>
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+            <div id="config"></div>
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+                  new TomSelect("#select-node",{
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      }
+                  });
+              
+
+              
+                  // explicitly using onItemAdd and this function as we need to save multiple values
+                  let updateValueFilter = function() {
+                      return function () {
+                      filter['value'].push(arguments[0])
+                      }
+                  }
+
+                  let valueControl = new TomSelect("#select-value",{
+                      maxItems: null,
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: updateValueFilter()
+                  });
+
+                  let addValues = function() {
+                      return function () {
+                          // clear the current value options and add the selected attribute values
+                          // tom-select handles duplicates
+                          let selectedProperty = arguments[0];
+                          valueControl.clear();
+                          valueControl.clearOptions();
+                          filter['value'] = []
+                          if (filter['item'] === 'node') {
+                              for (let each in allNodes) {
+                                  valueControl.addOption({
+                                      id:allNodes[each][selectedProperty],
+                                      title:allNodes[each][selectedProperty]
+                                  })
+                              }
+                          }
+                          else if (filter['item'] === 'edge') {
+                              for (let each in allEdges) {
+                                  valueControl.addOption({
+                                      id:allEdges[each][selectedProperty],
+                                      title:allEdges[each][selectedProperty]
+                                  })
+                              }
+                          }
+                      }
+                  };
+
+                  let propControl = new TomSelect("#select-property",{
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addValues()
+                  });
+
+                  let addProperties = function() {
+                      return function () {
+                          // loops through the selected network item and adds the attributes to dropdown
+                          // tom-select handles duplicates
+                          clearFilter(false)
+                          if (arguments[0] === 'edge') {
+                              for (let each in allEdges) {
+                                  if (allEdges.hasOwnProperty(each)) {
+                                      for (let eachProp in allEdges[each]) {
+                                          if (allEdges[each].hasOwnProperty(eachProp)) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                          else if (arguments[0] === 'node') {
+                              for (let each in allNodes) {
+                                  if (allNodes.hasOwnProperty(each)) {
+                                      for (let eachProp in allNodes[each]) {
+                                          if (allNodes[each].hasOwnProperty(eachProp)
+                                              && (eachProp !== 'hidden' && eachProp !== 'savedLabel'
+                                                  && eachProp !== 'hiddenLabel')) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  };
+
+                  let itemControl = new TomSelect("#select-item",{
+                      create: false,
+                      sortField:{
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addProperties()
+                  });
+
+                  function clearFilter(reset) {
+                      // utility function to clear all the selected filter options
+                      // if reset is set to true, the existing filter will be removed
+                      // else, only the dropdown options are cleared
+                      propControl.clear();
+                      propControl.clearOptions();
+                      valueControl.clear();
+                      valueControl.clearOptions();
+                      filter = {
+                          item : '',
+                          property : '',
+                          value : []
+                      }
+                      if (reset) {
+                          itemControl.clear();
+                          filterHighlight({nodes: []})
+                      }
+                  }
+
+                  function updateFilter(value, key) {
+                      // key could be 'item' or 'property' and value is as selected in dropdown
+                      filter[key] = value
+                  }
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"authors": "BF Skinner", "cited_by": 110, "cited_by_url": "https://scholar.google.com/scholar?cites=3168520230510388908\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "3168520230510388908", "label": "BF Skinner. BF Skinner", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://psycnet.apa.org/record/2008-00463-014\ntitle : color : #97c2fc\nurl : https://psycnet.apa.org/record/2008-00463-014\n\nauthors : BF Skinner\nyear : 1967\ncited_by : 110\ncited_by_url : https://scholar.google.com/scholar?cites=3168520230510388908\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 3168520230510388908\nlabel : BF Skinner. BF Skinner\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://psycnet.apa.org/record/2008-00463-014", "year": "1967"}, {"authors": "J Loeb", "cited_by": 259, "cited_by_url": "https://scholar.google.com/scholar?cites=2807278579993693288\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 91, "font": {"color": "black"}, "id": "2807278579993693288", "label": "Comparative physiology of the brain and comparative psychology J Loeb", "shape": "dot", "size": 10, "title": "color : #97c2fc\ntitle : color : #97c2fc\n\nauthors : J Loeb\nyear : 1900\ncited_by : 259\ncited_by_url : https://scholar.google.com/scholar?cites=2807278579993693288\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 91\nsize : 10\nid : 2807278579993693288\nlabel : Comparative physiology of the brain and comparative psychology J Loeb\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "year": "1900"}, {"authors": "E P\u00f6ppel", "cited_by": 336, "cited_by_url": "https://scholar.google.com/scholar?cites=6830496202948361771\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 102, "font": {"color": "black"}, "id": "6830496202948361771", "label": "Time perception E P\u00f6ppel", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://link.springer.com/chapter/10.1007/978-3-642-46354-9_23\ntitle : color : #97c2fc\nurl : https://link.springer.com/chapter/10.1007/978-3-642-46354-9_23\n\nauthors : E P\u00f6ppel\nyear : 1978\ncited_by : 336\ncited_by_url : https://scholar.google.com/scholar?cites=6830496202948361771\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 102\nsize : 10\nid : 6830496202948361771\nlabel : Time perception E P\u00f6ppel\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://link.springer.com/chapter/10.1007/978-3-642-46354-9_23", "year": "1978"}, {"authors": "E P\u00f6ppe", "cited_by": 160, "cited_by_url": "https://scholar.google.com/scholar?cites=2174036098887813298\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 91, "font": {"color": "black"}, "id": "2174036098887813298", "label": "Oscillations as possible basis for time perception E P\u00f6ppe", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://link.springer.com/chapter/10.1007/978-3-642-65387-2_16\ntitle : color : #97c2fc\nurl : https://link.springer.com/chapter/10.1007/978-3-642-65387-2_16\n\nauthors : E P\u00f6ppe\nyear : 1972\ncited_by : 160\ncited_by_url : https://scholar.google.com/scholar?cites=2174036098887813298\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 91\nsize : 10\nid : 2174036098887813298\nlabel : Oscillations as possible basis for time perception E P\u00f6ppe\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://link.springer.com/chapter/10.1007/978-3-642-65387-2_16", "year": "1972"}, {"authors": "E Mach", "cited_by": 1844, "color": "#97c2fc", "contraction": "{\u00273033505355047666451\u0027: {\u0027label\u0027: \u0027Die Analyse der Empfindungen und das Verh\u00e4ltnis des physischen zum psychischen\u0027, \u0027id\u0027: \u00273033505355047666451\u0027, \u0027title\u0027: \u0027Die Analyse der Empfindungen und das Verh\u00e4ltnis des physischen zum psychischen\u0027, \u0027cited_by\u0027: 844}}", "degree": 378, "font": {"color": "black"}, "id": "10510889753822385821", "label": "The analysis of sensations, and the relation of the physical to the psychical E Mach", "shape": "dot", "size": 10, "title": "color : #97c2fc\ntitle : color : #97c2fc\n\ncited_by : 1844\ncontraction : {\u00273033505355047666451\u0027: {\u0027label\u0027: \u0027Die Analyse der Empfindungen und das Verh\u00e4ltnis des physischen zum psychischen\u0027, \u0027id\u0027: \u00273033505355047666451\u0027, \u0027title\u0027: \u0027Die Analyse der Empfindungen und das Verh\u00e4ltnis des physischen zum psychischen\u0027, \u0027cited_by\u0027: 844}}\ndegree : 378\nauthors : E Mach\nsize : 10\nid : 10510889753822385821\nlabel : The analysis of sensations, and the relation of the physical to the psychical E Mach\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n"}, {"authors": "BF Skinner", "cited_by": 5466, "cited_by_url": "https://scholar.google.com/scholar?cites=197796938797543733\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "197796938797543733", "label": "Contingencies of reinforcement: A theoretical analysis BF Skinner", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=yLn6AwAAQBAJ\u0026oi=fnd\u0026pg=PT25\u0026ots=qU1PGRViZY\u0026sig=Pq92Jm09tXNMs_Xdd3t5DRK7q3w\ntitle : color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=yLn6AwAAQBAJ\u0026oi=fnd\u0026pg=PT25\u0026ots=qU1PGRViZY\u0026sig=Pq92Jm09tXNMs_Xdd3t5DRK7q3w\n\nauthors : BF Skinner\nyear : 2014\ncited_by : 5466\ncited_by_url : https://scholar.google.com/scholar?cites=197796938797543733\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 197796938797543733\nlabel : Contingencies of reinforcement: A theoretical analysis BF Skinner\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://books.google.com/books?hl=en\u0026lr=\u0026id=yLn6AwAAQBAJ\u0026oi=fnd\u0026pg=PT25\u0026ots=qU1PGRViZY\u0026sig=Pq92Jm09tXNMs_Xdd3t5DRK7q3w", "year": "2014"}, {"authors": "BF Skinner", "cited_by": 17562, "cited_by_url": "https://scholar.google.com/scholar?cites=7591695040665396739\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 101, "font": {"color": "black"}, "id": "7591695040665396739", "label": "The behavior of organisms: An experimental analysis BF Skinner", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=S9WNCwAAQBAJ\u0026oi=fnd\u0026pg=PT20\u0026ots=Lmwu5jwDIX\u0026sig=ePCQFlkqDs6zUrhYk5iEj-gqTpY\ntitle : color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=S9WNCwAAQBAJ\u0026oi=fnd\u0026pg=PT20\u0026ots=Lmwu5jwDIX\u0026sig=ePCQFlkqDs6zUrhYk5iEj-gqTpY\n\nauthors : BF Skinner\nyear : 2019\ncited_by : 17562\ncited_by_url : https://scholar.google.com/scholar?cites=7591695040665396739\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 101\nsize : 10\nid : 7591695040665396739\nlabel : The behavior of organisms: An experimental analysis BF Skinner\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://books.google.com/books?hl=en\u0026lr=\u0026id=S9WNCwAAQBAJ\u0026oi=fnd\u0026pg=PT20\u0026ots=Lmwu5jwDIX\u0026sig=ePCQFlkqDs6zUrhYk5iEj-gqTpY", "year": "2019"}, {"authors": "FJ Varela", "cited_by": 269, "cited_by_url": "https://scholar.google.com/scholar?cites=104903980848174708\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "104903980848174708", "label": "Present-time consciousness FJ Varela", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.ingentaconnect.com/content/imp/jcs/1999/00000006/F0020002/930\ntitle : color : #97c2fc\nurl : https://www.ingentaconnect.com/content/imp/jcs/1999/00000006/F0020002/930\n\nauthors : FJ Varela\nyear : 1999\ncited_by : 269\ncited_by_url : https://scholar.google.com/scholar?cites=104903980848174708\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 104903980848174708\nlabel : Present-time consciousness FJ Varela\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.ingentaconnect.com/content/imp/jcs/1999/00000006/F0020002/930", "year": "1999"}, {"authors": "E P\u00f6ppel, TT Artin", "cited_by": 361, "cited_by_url": "https://scholar.google.com/scholar?cites=3821234056417142866\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 102, "font": {"color": "black"}, "id": "3821234056417142866", "label": "Mindworks: Time and conscious experience. E P\u00f6ppel, TT Artin", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://psycnet.apa.org/record/1988-97501-000\ntitle : color : #97c2fc\nurl : https://psycnet.apa.org/record/1988-97501-000\n\nauthors : E P\u00f6ppel, TT Artin\nyear : 1988\ncited_by : 361\ncited_by_url : https://scholar.google.com/scholar?cites=3821234056417142866\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 102\nsize : 10\nid : 3821234056417142866\nlabel : Mindworks: Time and conscious experience. E P\u00f6ppel, TT Artin\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://psycnet.apa.org/record/1988-97501-000", "year": "1988"}, {"authors": "NE Depraz_FJ Varela_PE Vermersch", "cited_by": 887, "cited_by_url": "https://scholar.google.com/scholar?cites=15633005858985031885\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "15633005858985031885", "label": "On becoming aware: A pragmatics of experiencing. NE Depraz_FJ Varela_PE Vermersch", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://psycnet.apa.org/record/2003-02862-000\ntitle : color : #97c2fc\nurl : https://psycnet.apa.org/record/2003-02862-000\n\nauthors : NE Depraz_FJ Varela_PE Vermersch\nyear : 2003\ncited_by : 887\ncited_by_url : https://scholar.google.com/scholar?cites=15633005858985031885\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 15633005858985031885\nlabel : On becoming aware: A pragmatics of experiencing. NE Depraz_FJ Varela_PE Vermersch\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://psycnet.apa.org/record/2003-02862-000", "year": "2003"}, {"authors": "M Jeannerod", "cited_by": 3079, "cited_by_url": "https://scholar.google.com/scholar?cites=16793595165947415525\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 103, "font": {"color": "black"}, "id": "16793595165947415525", "label": "The representing brain: Neural correlates of motor intention and imagery M Jeannerod", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/representing-brain-neural-correlates-of-motor-intention-and-imagery/DBF7AB09145C9F02793378601B9A7155\ntitle : color : #97c2fc\nurl : https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/representing-brain-neural-correlates-of-motor-intention-and-imagery/DBF7AB09145C9F02793378601B9A7155\n\nauthors : M Jeannerod\nyear : 1994\ncited_by : 3079\ncited_by_url : https://scholar.google.com/scholar?cites=16793595165947415525\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 103\nsize : 10\nid : 16793595165947415525\nlabel : The representing brain: Neural correlates of motor intention and imagery M Jeannerod\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/representing-brain-neural-correlates-of-motor-intention-and-imagery/DBF7AB09145C9F02793378601B9A7155", "year": "1994"}, {"authors": "J Piaget", "cited_by": 2341, "cited_by_url": "https://scholar.google.com/scholar?cites=13906867256000550868\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "13906867256000550868", "label": "The child\u0027s conception of physical causality J Piaget", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.taylorfrancis.com/books/mono/10.4324/9781351305082/child-conception-physical-causality-jean-piaget\ntitle : color : #97c2fc\nurl : https://www.taylorfrancis.com/books/mono/10.4324/9781351305082/child-conception-physical-causality-jean-piaget\n\nauthors : J Piaget\nyear : 2017\ncited_by : 2341\ncited_by_url : https://scholar.google.com/scholar?cites=13906867256000550868\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 13906867256000550868\nlabel : The child\u0027s conception of physical causality J Piaget\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.taylorfrancis.com/books/mono/10.4324/9781351305082/child-conception-physical-causality-jean-piaget", "year": "2017"}, {"authors": "J Piaget", "cited_by": 11293, "cited_by_url": "https://scholar.google.com/scholar?cites=12224115070662084473\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 101, "font": {"color": "black"}, "id": "12224115070662084473", "label": "Language and Thought of the Child: Selected Works vol 5 J Piaget", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.taylorfrancis.com/books/mono/10.4324/9780203992739/language-thought-child-jean-piaget\ntitle : color : #97c2fc\nurl : https://www.taylorfrancis.com/books/mono/10.4324/9780203992739/language-thought-child-jean-piaget\n\nauthors : J Piaget\nyear : 2005\ncited_by : 11293\ncited_by_url : https://scholar.google.com/scholar?cites=12224115070662084473\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 101\nsize : 10\nid : 12224115070662084473\nlabel : Language and Thought of the Child: Selected Works vol 5 J Piaget\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.taylorfrancis.com/books/mono/10.4324/9780203992739/language-thought-child-jean-piaget", "year": "2005"}, {"authors": "SC Gandevia", "cited_by": 188, "cited_by_url": "https://scholar.google.com/scholar?cites=12689955802454891176\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 21, "font": {"color": "black"}, "id": "12689955802454891176", "label": "The perception of motor commands or effort during muscular paralysis. SC Gandevia", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://europepmc.org/article/med/6461386\ntitle : color : #97c2fc\nurl : https://europepmc.org/article/med/6461386\n\nauthors : SC Gandevia\nyear : 1982\ncited_by : 188\ncited_by_url : https://scholar.google.com/scholar?cites=12689955802454891176\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 21\nsize : 10\nid : 12689955802454891176\nlabel : The perception of motor commands or effort during muscular paralysis. SC Gandevia\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://europepmc.org/article/med/6461386", "year": "1982"}, {"authors": "V Gallese_G Lakoff", "cited_by": 3400, "cited_by_url": "https://scholar.google.com/scholar?cites=4210800085543001363\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "4210800085543001363", "label": "The brain\u0027s concepts: The role of the sensory-motor system in conceptual knowledge V Gallese_G Lakoff", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.tandfonline.com/doi/abs/10.1080/02643290442000310\ntitle : color : #97c2fc\nurl : https://www.tandfonline.com/doi/abs/10.1080/02643290442000310\n\nauthors : V Gallese_G Lakoff\nyear : 2005\ncited_by : 3400\ncited_by_url : https://scholar.google.com/scholar?cites=4210800085543001363\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 4210800085543001363\nlabel : The brain\u0027s concepts: The role of the sensory-motor system in conceptual knowledge V Gallese_G Lakoff\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.tandfonline.com/doi/abs/10.1080/02643290442000310", "year": "2005"}, {"authors": "P Bryant", "cited_by": 743, "cited_by_url": "https://scholar.google.com/scholar?cites=2464763030607474037\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 72, "font": {"color": "black"}, "id": "2464763030607474037", "label": "Perception and understanding in young children: An experimental approach P Bryant", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.taylorfrancis.com/books/mono/10.4324/9781315534251/perception-understanding-young-children-peter-bryant\ntitle : color : #97c2fc\nurl : https://www.taylorfrancis.com/books/mono/10.4324/9781315534251/perception-understanding-young-children-peter-bryant\n\nauthors : P Bryant\nyear : 2017\ncited_by : 743\ncited_by_url : https://scholar.google.com/scholar?cites=2464763030607474037\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 72\nsize : 10\nid : 2464763030607474037\nlabel : Perception and understanding in young children: An experimental approach P Bryant\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.taylorfrancis.com/books/mono/10.4324/9781315534251/perception-understanding-young-children-peter-bryant", "year": "2017"}, {"authors": "MC Corballis, IL Beale", "cited_by": 206, "cited_by_url": "https://scholar.google.com/scholar?cites=10355004591623608526\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 11, "font": {"color": "black"}, "id": "10355004591623608526", "label": "Bilateral symmetry and behavior. MC Corballis, IL Beale", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://psycnet.apa.org/record/1971-01809-001\ntitle : color : #97c2fc\nurl : https://psycnet.apa.org/record/1971-01809-001\n\nauthors : MC Corballis, IL Beale\nyear : 1970\ncited_by : 206\ncited_by_url : https://scholar.google.com/scholar?cites=10355004591623608526\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 11\nsize : 10\nid : 10355004591623608526\nlabel : Bilateral symmetry and behavior. MC Corballis, IL Beale\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://psycnet.apa.org/record/1971-01809-001", "year": "1970"}, {"authors": "S Ullman", "cited_by": 681, "cited_by_url": "https://scholar.google.com/scholar?cites=16212857745313426869\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 82, "font": {"color": "black"}, "id": "16212857745313426869", "label": "Against direct perception S Ullman", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/against-direct-perception/D40D5E642E146073D2076031488C4459\ntitle : color : #97c2fc\nurl : https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/against-direct-perception/D40D5E642E146073D2076031488C4459\n\nauthors : S Ullman\nyear : 1980\ncited_by : 681\ncited_by_url : https://scholar.google.com/scholar?cites=16212857745313426869\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 82\nsize : 10\nid : 16212857745313426869\nlabel : Against direct perception S Ullman\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/against-direct-perception/D40D5E642E146073D2076031488C4459", "year": "1980"}, {"authors": "J Piaget_B Inhelder", "cited_by": 12733, "cited_by_url": "https://scholar.google.com/scholar?cites=1752843606134085846\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "1752843606134085846", "label": "The psychology of the child J Piaget_B Inhelder", "shape": "dot", "size": 10, "title": "color : #97c2fc\ntitle : color : #97c2fc\n\nauthors : J Piaget_B Inhelder\nyear : 2008\ncited_by : 12733\ncited_by_url : https://scholar.google.com/scholar?cites=1752843606134085846\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 1752843606134085846\nlabel : The psychology of the child J Piaget_B Inhelder\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "year": "2008"}, {"authors": "N Chomsky", "cited_by": 7968, "cited_by_url": "https://scholar.google.com/scholar?cites=3265949321016474269\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "3265949321016474269", "label": "Rules and representations N Chomsky", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/rules-and-representations/BB96E4E09C461EFC230F72A9D7BDF603\ntitle : color : #97c2fc\nurl : https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/rules-and-representations/BB96E4E09C461EFC230F72A9D7BDF603\n\nauthors : N Chomsky\nyear : 1980\ncited_by : 7968\ncited_by_url : https://scholar.google.com/scholar?cites=3265949321016474269\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 3265949321016474269\nlabel : Rules and representations N Chomsky\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/rules-and-representations/BB96E4E09C461EFC230F72A9D7BDF603", "year": "1980"}, {"authors": "BF Skinner", "cited_by": 2051, "cited_by_url": "https://scholar.google.com/scholar?cites=15157916783265045214\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "15157916783265045214", "label": "The operational analysis of psychological terms BF Skinner", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/operational-analysis-of-psychological-terms/6AA0889CC30493311077553E7B6F0BC0\ntitle : color : #97c2fc\nurl : https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/operational-analysis-of-psychological-terms/6AA0889CC30493311077553E7B6F0BC0\n\nauthors : BF Skinner\nyear : 1984\ncited_by : 2051\ncited_by_url : https://scholar.google.com/scholar?cites=15157916783265045214\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 15157916783265045214\nlabel : The operational analysis of psychological terms BF Skinner\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/operational-analysis-of-psychological-terms/6AA0889CC30493311077553E7B6F0BC0", "year": "1984"}, {"authors": "HB Barlow", "cited_by": 2413, "cited_by_url": "https://scholar.google.com/scholar?cites=2057592355455493423\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 92, "font": {"color": "black"}, "id": "2057592355455493423", "label": "Single units and sensation: a neuron doctrine for perceptual psychology? HB Barlow", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://journals.sagepub.com/doi/abs/10.1068/p010371\ntitle : color : #97c2fc\nurl : https://journals.sagepub.com/doi/abs/10.1068/p010371\n\nauthors : HB Barlow\nyear : 1972\ncited_by : 2413\ncited_by_url : https://scholar.google.com/scholar?cites=2057592355455493423\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 92\nsize : 10\nid : 2057592355455493423\nlabel : Single units and sensation: a neuron doctrine for perceptual psychology? HB Barlow\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://journals.sagepub.com/doi/abs/10.1068/p010371", "year": "1972"}, {"authors": "HB Barlow", "cited_by": 2969, "cited_by_url": "https://scholar.google.com/scholar?cites=10243032284281801016\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 101, "font": {"color": "black"}, "id": "10243032284281801016", "label": "Possible principles underlying the transformation of sensory messages HB Barlow", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.cnbc.cmu.edu/~tai/nc19journalclubs/Barlow-SensoryCommunication-1961.pdf\ntitle : color : #97c2fc\nurl : https://www.cnbc.cmu.edu/~tai/nc19journalclubs/Barlow-SensoryCommunication-1961.pdf\n\nauthors : HB Barlow\nyear : 1961\ncited_by : 2969\ncited_by_url : https://scholar.google.com/scholar?cites=10243032284281801016\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 101\nsize : 10\nid : 10243032284281801016\nlabel : Possible principles underlying the transformation of sensory messages HB Barlow\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.cnbc.cmu.edu/~tai/nc19journalclubs/Barlow-SensoryCommunication-1961.pdf", "year": "1961"}, {"authors": "G Johansson, C von Hofsten\u2026", "cited_by": 309, "cited_by_url": "https://scholar.google.com/scholar?cites=15331830739360271440\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 62, "font": {"color": "black"}, "id": "15331830739360271440", "label": "EVENT PERCEPTION. 320 G Johansson, C von Hofsten\u2026", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.researchgate.net/profile/Claes-Hofsten/publication/15837315_Event_Perception/links/00463530b2d15edd88000000/Event-Perception.pdf\ntitle : color : #97c2fc\nurl : https://www.researchgate.net/profile/Claes-Hofsten/publication/15837315_Event_Perception/links/00463530b2d15edd88000000/Event-Perception.pdf\n\nauthors : G Johansson, C von Hofsten\u2026\nyear : 1980\ncited_by : 309\ncited_by_url : https://scholar.google.com/scholar?cites=15331830739360271440\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 62\nsize : 10\nid : 15331830739360271440\nlabel : EVENT PERCEPTION. 320 G Johansson, C von Hofsten\u2026\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.researchgate.net/profile/Claes-Hofsten/publication/15837315_Event_Perception/links/00463530b2d15edd88000000/Event-Perception.pdf", "year": "1980"}, {"authors": "JJ Gibson", "cited_by": 48222, "cited_by_url": "https://scholar.google.com/scholar?cites=2747980271090863868\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "2747980271090863868", "label": "The ecological approach to visual perception: classic edition JJ Gibson", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.taylorfrancis.com/books/mono/10.4324/9781315740218/ecological-approach-visual-perception-james-gibson\ntitle : color : #97c2fc\nurl : https://www.taylorfrancis.com/books/mono/10.4324/9781315740218/ecological-approach-visual-perception-james-gibson\n\nauthors : JJ Gibson\nyear : 2014\ncited_by : 48222\ncited_by_url : https://scholar.google.com/scholar?cites=2747980271090863868\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 2747980271090863868\nlabel : The ecological approach to visual perception: classic edition JJ Gibson\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.taylorfrancis.com/books/mono/10.4324/9781315740218/ecological-approach-visual-perception-james-gibson", "year": "2014"}, {"authors": "R Arnheim", "cited_by": 7964, "cited_by_url": "https://scholar.google.com/scholar?cites=16518685784448193658\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 101, "font": {"color": "black"}, "id": "16518685784448193658", "label": "Art and visual perception: A psychology of the creative eye R Arnheim", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=68hz5phbLMwC\u0026oi=fnd\u0026pg=PA1\u0026ots=2c1V_4id0e\u0026sig=JsNSo2XdeKViWAqThYiqMUzhdYk\ntitle : color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=68hz5phbLMwC\u0026oi=fnd\u0026pg=PA1\u0026ots=2c1V_4id0e\u0026sig=JsNSo2XdeKViWAqThYiqMUzhdYk\n\nauthors : R Arnheim\nyear : 1956\ncited_by : 7964\ncited_by_url : https://scholar.google.com/scholar?cites=16518685784448193658\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 101\nsize : 10\nid : 16518685784448193658\nlabel : Art and visual perception: A psychology of the creative eye R Arnheim\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://books.google.com/books?hl=en\u0026lr=\u0026id=68hz5phbLMwC\u0026oi=fnd\u0026pg=PA1\u0026ots=2c1V_4id0e\u0026sig=JsNSo2XdeKViWAqThYiqMUzhdYk", "year": "1956"}, {"authors": "R Held, J Dichgans, J Bauer", "cited_by": 319, "cited_by_url": "https://scholar.google.com/scholar?cites=18371978792867013989\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 61, "font": {"color": "black"}, "id": "18371978792867013989", "label": "Characteristics of moving visual scenes influencing spatial orientation R Held, J Dichgans, J Bauer", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.sciencedirect.com/science/article/pii/0042698975900838\ntitle : color : #97c2fc\nurl : https://www.sciencedirect.com/science/article/pii/0042698975900838\n\nauthors : R Held, J Dichgans, J Bauer\nyear : 1975\ncited_by : 319\ncited_by_url : https://scholar.google.com/scholar?cites=18371978792867013989\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 61\nsize : 10\nid : 18371978792867013989\nlabel : Characteristics of moving visual scenes influencing spatial orientation R Held, J Dichgans, J Bauer\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.sciencedirect.com/science/article/pii/0042698975900838", "year": "1975"}, {"authors": "HA Simon", "cited_by": 1082, "cited_by_url": "https://scholar.google.com/scholar?cites=9932701864897299105\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "9932701864897299105", "label": "Models of discovery: And other topics in the methods of science HA Simon", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=iCvpCAAAQBAJ\u0026oi=fnd\u0026pg=PR12\u0026ots=amYf2jwL6V\u0026sig=49cLsphOtTbXhp4yG1dTO9zb8M4\ntitle : color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=iCvpCAAAQBAJ\u0026oi=fnd\u0026pg=PR12\u0026ots=amYf2jwL6V\u0026sig=49cLsphOtTbXhp4yG1dTO9zb8M4\n\nauthors : HA Simon\nyear : 2012\ncited_by : 1082\ncited_by_url : https://scholar.google.com/scholar?cites=9932701864897299105\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 9932701864897299105\nlabel : Models of discovery: And other topics in the methods of science HA Simon\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://books.google.com/books?hl=en\u0026lr=\u0026id=iCvpCAAAQBAJ\u0026oi=fnd\u0026pg=PR12\u0026ots=amYf2jwL6V\u0026sig=49cLsphOtTbXhp4yG1dTO9zb8M4", "year": "2012"}, {"authors": "M Capek", "cited_by": 313, "cited_by_url": "https://scholar.google.com/scholar?cites=1812944034626462311\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 71, "font": {"color": "black"}, "id": "1812944034626462311", "label": "Bergson and modern physics: A reinterpretation and re-evaluation M Capek", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=2r38CAAAQBAJ\u0026oi=fnd\u0026pg=PA3\u0026ots=VeqircTesG\u0026sig=6AUpc4qMem8WpASNuASLblbYVAY\ntitle : color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=2r38CAAAQBAJ\u0026oi=fnd\u0026pg=PA3\u0026ots=VeqircTesG\u0026sig=6AUpc4qMem8WpASNuASLblbYVAY\n\nauthors : M Capek\nyear : 2012\ncited_by : 313\ncited_by_url : https://scholar.google.com/scholar?cites=1812944034626462311\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 71\nsize : 10\nid : 1812944034626462311\nlabel : Bergson and modern physics: A reinterpretation and re-evaluation M Capek\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://books.google.com/books?hl=en\u0026lr=\u0026id=2r38CAAAQBAJ\u0026oi=fnd\u0026pg=PA3\u0026ots=VeqircTesG\u0026sig=6AUpc4qMem8WpASNuASLblbYVAY", "year": "2012"}, {"authors": "FJ Varela", "cited_by": 462, "cited_by_url": "https://scholar.google.com/scholar?cites=13297453176152494503\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "13297453176152494503", "label": "Resonant cell assemblies: a new approach to cognitive functions and neuronal synchrony FJ Varela", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : http://biologiachile.cl/biological_research/VOL29_1995/N1/FJ_VARELA.pdf\ntitle : color : #97c2fc\nurl : http://biologiachile.cl/biological_research/VOL29_1995/N1/FJ_VARELA.pdf\n\nauthors : FJ Varela\nyear : 1995\ncited_by : 462\ncited_by_url : https://scholar.google.com/scholar?cites=13297453176152494503\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 13297453176152494503\nlabel : Resonant cell assemblies: a new approach to cognitive functions and neuronal synchrony FJ Varela\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "http://biologiachile.cl/biological_research/VOL29_1995/N1/FJ_VARELA.pdf", "year": "1995"}, {"authors": "BF Skinner", "cited_by": 5558, "cited_by_url": "https://scholar.google.com/scholar?cites=4385590567315623899\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "4385590567315623899", "label": "Review Lecture-The technology of teaching BF Skinner", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://royalsocietypublishing.org/doi/abs/10.1098/rspb.1965.0048\ntitle : color : #97c2fc\nurl : https://royalsocietypublishing.org/doi/abs/10.1098/rspb.1965.0048\n\nauthors : BF Skinner\nyear : 1965\ncited_by : 5558\ncited_by_url : https://scholar.google.com/scholar?cites=4385590567315623899\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 4385590567315623899\nlabel : Review Lecture-The technology of teaching BF Skinner\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://royalsocietypublishing.org/doi/abs/10.1098/rspb.1965.0048", "year": "1965"}, {"authors": "A Newell", "cited_by": 3616, "cited_by_url": "https://scholar.google.com/scholar?cites=8993201088150376922\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "8993201088150376922", "label": "The knowledge level A Newell", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : http://lidecc.cs.uns.edu.ar/~grs/InteligenciaArtificial/Allen%20Newell%20-%20The%20knowledge%20level.pdf\ntitle : color : #97c2fc\nurl : http://lidecc.cs.uns.edu.ar/~grs/InteligenciaArtificial/Allen%20Newell%20-%20The%20knowledge%20level.pdf\n\nauthors : A Newell\nyear : 1982\ncited_by : 3616\ncited_by_url : https://scholar.google.com/scholar?cites=8993201088150376922\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 8993201088150376922\nlabel : The knowledge level A Newell\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "http://lidecc.cs.uns.edu.ar/~grs/InteligenciaArtificial/Allen%20Newell%20-%20The%20knowledge%20level.pdf", "year": "1982"}, {"authors": "JM Anglin_GA Miller_PC Wakefield", "cited_by": 1736, "cited_by_url": "https://scholar.google.com/scholar?cites=9196747973933596213\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "9196747973933596213", "label": "Vocabulary development: A morphological analysis JM Anglin_GA Miller_PC Wakefield", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.jstor.org/stable/1166112\ntitle : color : #97c2fc\nurl : https://www.jstor.org/stable/1166112\n\nauthors : JM Anglin_GA Miller_PC Wakefield\nyear : 1993\ncited_by : 1736\ncited_by_url : https://scholar.google.com/scholar?cites=9196747973933596213\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 9196747973933596213\nlabel : Vocabulary development: A morphological analysis JM Anglin_GA Miller_PC Wakefield\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.jstor.org/stable/1166112", "year": "1993"}, {"authors": "BF Skinner", "cited_by": 2899, "cited_by_url": "https://scholar.google.com/scholar?cites=14935479870787802675\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "14935479870787802675", "label": "Are theories of learning necessary? BF Skinner", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://psycnet.apa.org/record/1951-02292-001\ntitle : color : #97c2fc\nurl : https://psycnet.apa.org/record/1951-02292-001\n\nauthors : BF Skinner\nyear : 1950\ncited_by : 2899\ncited_by_url : https://scholar.google.com/scholar?cites=14935479870787802675\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 14935479870787802675\nlabel : Are theories of learning necessary? BF Skinner\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://psycnet.apa.org/record/1951-02292-001", "year": "1950"}, {"authors": "FJ Varela_E Thompson_E Rosch", "cited_by": 13422, "cited_by_url": "https://scholar.google.com/scholar?cites=8814975881772454610\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 2, "font": {"color": "black"}, "id": "8814975881772454610", "label": "The embodied mind, revised edition: Cognitive science and human experience FJ Varela_E Thompson_E Rosch", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=bxLiDQAAQBAJ\u0026oi=fnd\u0026pg=PR7\u0026ots=LwZkrzTevV\u0026sig=rFsbPvb2asjDF7zCYZh4qWWTJEw\ntitle : color : #97c2fc\nurl : https://books.google.com/books?hl=en\u0026lr=\u0026id=bxLiDQAAQBAJ\u0026oi=fnd\u0026pg=PR7\u0026ots=LwZkrzTevV\u0026sig=rFsbPvb2asjDF7zCYZh4qWWTJEw\n\nauthors : FJ Varela_E Thompson_E Rosch\nyear : 2017\ncited_by : 13422\ncited_by_url : https://scholar.google.com/scholar?cites=8814975881772454610\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 2\nsize : 10\nid : 8814975881772454610\nlabel : The embodied mind, revised edition: Cognitive science and human experience FJ Varela_E Thompson_E Rosch\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://books.google.com/books?hl=en\u0026lr=\u0026id=bxLiDQAAQBAJ\u0026oi=fnd\u0026pg=PR7\u0026ots=LwZkrzTevV\u0026sig=rFsbPvb2asjDF7zCYZh4qWWTJEw", "year": "2017"}, {"authors": "FJ Varela", "cited_by": 2447, "cited_by_url": "https://scholar.google.com/scholar?cites=10968151204285300267\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "10968151204285300267", "label": "Neurophenomenology: A methodological remedy for the hard problem FJ Varela", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.ingentaconnect.com/content/imp/jcs/1996/00000003/00000004/718\ntitle : color : #97c2fc\nurl : https://www.ingentaconnect.com/content/imp/jcs/1996/00000003/00000004/718\n\nauthors : FJ Varela\nyear : 1996\ncited_by : 2447\ncited_by_url : https://scholar.google.com/scholar?cites=10968151204285300267\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 10968151204285300267\nlabel : Neurophenomenology: A methodological remedy for the hard problem FJ Varela\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.ingentaconnect.com/content/imp/jcs/1996/00000003/00000004/718", "year": "1996"}, {"authors": "JJ Gibson_L Carmichael", "cited_by": 15023, "cited_by_url": "https://scholar.google.com/scholar?cites=14334859214629088286\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 2, "font": {"color": "black"}, "id": "14334859214629088286", "label": "The senses considered as perceptual systems JJ Gibson_L Carmichael", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://monoskop.org/images/d/df/Gibson_James_J_The_Sense_Considered_as_Perceptual_Systems_1966.pdf\ntitle : color : #97c2fc\nurl : https://monoskop.org/images/d/df/Gibson_James_J_The_Sense_Considered_as_Perceptual_Systems_1966.pdf\n\nauthors : JJ Gibson_L Carmichael\nyear : 1966\ncited_by : 15023\ncited_by_url : https://scholar.google.com/scholar?cites=14334859214629088286\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 2\nsize : 10\nid : 14334859214629088286\nlabel : The senses considered as perceptual systems JJ Gibson_L Carmichael\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://monoskop.org/images/d/df/Gibson_James_J_The_Sense_Considered_as_Perceptual_Systems_1966.pdf", "year": "1966"}, {"authors": "S Gallagher_FJ Varela", "cited_by": 200, "cited_by_url": "https://scholar.google.com/scholar?cites=2178833856123526163\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en", "color": "#97c2fc", "degree": 1, "font": {"color": "black"}, "id": "2178833856123526163", "label": "Redrawing the Map and Resetting the Time: Phenomenology and the Cognitive Sciences1 S Gallagher_FJ Varela", "shape": "dot", "size": 10, "title": "color : #97c2fc\nurl : https://www.cambridge.org/core/journals/canadian-journal-of-philosophy-supplementary-volume/article/redrawing-the-map-and-resetting-the-time-phenomenology-and-the-cognitive-sciences1/EC060C5A84E69D4F9AB8F8F7CFE3DB68\ntitle : color : #97c2fc\nurl : https://www.cambridge.org/core/journals/canadian-journal-of-philosophy-supplementary-volume/article/redrawing-the-map-and-resetting-the-time-phenomenology-and-the-cognitive-sciences1/EC060C5A84E69D4F9AB8F8F7CFE3DB68\n\nauthors : S Gallagher_FJ Varela\nyear : 2003\ncited_by : 200\ncited_by_url : https://scholar.google.com/scholar?cites=2178833856123526163\u0026as_sdt=2005\u0026sciodt=0,5\u0026hl=en\ndegree : 1\nsize : 10\nid : 2178833856123526163\nlabel : Redrawing the Map and Resetting the Time: Phenomenology and the Cognitive Sciences1 S Gallagher_FJ Varela\nshape : dot\nfont : {\u0027color\u0027: \u0027black\u0027}\n", "url": "https://www.cambridge.org/core/journals/canadian-journal-of-philosophy-supplementary-volume/article/redrawing-the-map-and-resetting-the-time-phenomenology-and-the-cognitive-sciences1/EC060C5A84E69D4F9AB8F8F7CFE3DB68", "year": "2003"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "3168520230510388908", "id": "11185", "to": "2807278579993693288", "width": 1}, {"arrows": "to", "from": "6830496202948361771", "id": "10779", "to": "2174036098887813298", "width": 1}, {"arrows": "to", "from": "6830496202948361771", "id": "10780", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "197796938797543733", "id": "293", "to": "7591695040665396739", "width": 1}, {"arrows": "to", "from": "104903980848174708", "id": "10703", "to": "3821234056417142866", "width": 1}, {"arrows": "to", "from": "15633005858985031885", "id": "10137", "to": "16793595165947415525", "width": 1}, {"arrows": "to", "from": "13906867256000550868", "id": "694", "to": "12224115070662084473", "width": 1}, {"arrows": "to", "from": "12689955802454891176", "id": "9804", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "12224115070662084473", "id": "605", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "4210800085543001363", "id": "10084", "to": "16793595165947415525", "width": 1}, {"arrows": "to", "from": "2464763030607474037", "id": "5095", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "2464763030607474037", "id": "5096", "to": "10355004591623608526", "width": 1}, {"arrows": "to", "from": "16793595165947415525", "id": "4036", "to": "16212857745313426869", "width": 1}, {"arrows": "to", "from": "16793595165947415525", "id": "4037", "to": "12689955802454891176", "width": 1}, {"arrows": "to", "from": "16793595165947415525", "id": "4038", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "1752843606134085846", "id": "616", "to": "12224115070662084473", "width": 1}, {"arrows": "to", "from": "3265949321016474269", "id": "5098", "to": "2464763030607474037", "width": 1}, {"arrows": "to", "from": "15157916783265045214", "id": "347", "to": "7591695040665396739", "width": 1}, {"arrows": "to", "from": "2057592355455493423", "id": "937", "to": "10243032284281801016", "width": 1}, {"arrows": "to", "from": "2057592355455493423", "id": "938", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "16212857745313426869", "id": "4028", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "16212857745313426869", "id": "4029", "to": "15331830739360271440", "width": 1}, {"arrows": "to", "from": "7591695040665396739", "id": "246", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "2747980271090863868", "id": "377", "to": "16518685784448193658", "width": 1}, {"arrows": "to", "from": "15331830739360271440", "id": "6891", "to": "18371978792867013989", "width": 1}, {"arrows": "to", "from": "15331830739360271440", "id": "6892", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "3821234056417142866", "id": "10675", "to": "6830496202948361771", "width": 1}, {"arrows": "to", "from": "3821234056417142866", "id": "10676", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "9932701864897299105", "id": "6435", "to": "1812944034626462311", "width": 1}, {"arrows": "to", "from": "13297453176152494503", "id": "11445", "to": "2174036098887813298", "width": 1}, {"arrows": "to", "from": "4385590567315623899", "id": "277", "to": "7591695040665396739", "width": 1}, {"arrows": "to", "from": "2807278579993693288", "id": "11167", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "8993201088150376922", "id": "664", "to": "12224115070662084473", "width": 1}, {"arrows": "to", "from": "9196747973933596213", "id": "690", "to": "12224115070662084473", "width": 1}, {"arrows": "to", "from": "2174036098887813298", "id": "11440", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "16518685784448193658", "id": "368", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "10355004591623608526", "id": "9929", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "18371978792867013989", "id": "6888", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "1812944034626462311", "id": "6431", "to": "10510889753822385821", "width": 1}, {"arrows": "to", "from": "14935479870787802675", "id": "324", "to": "7591695040665396739", "width": 1}, {"arrows": "to", "from": "8814975881772454610", "id": "1377", "to": "2057592355455493423", "width": 1}, {"arrows": "to", "from": "8814975881772454610", "id": "1378", "to": "16212857745313426869", "width": 1}, {"arrows": "to", "from": "10968151204285300267", "id": "10088", "to": "16793595165947415525", "width": 1}, {"arrows": "to", "from": "14334859214629088286", "id": "252", "to": "7591695040665396739", "width": 1}, {"arrows": "to", "from": "14334859214629088286", "id": "253", "to": "16518685784448193658", "width": 1}, {"arrows": "to", "from": "2178833856123526163", "id": "10718", "to": "3821234056417142866", "width": 1}, {"arrows": "to", "from": "10243032284281801016", "id": "919", "to": "10510889753822385821", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "nodes",
+            "edges",
+            "physics",
+            "layout",
+            "interaction",
+            "manipulation",
+            "selection",
+            "renderer"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+                  // if this network requires displaying the configure window,
+                  // put it in its div
+                  options.configure["container"] = document.getElementById("config");
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+                    network.on("selectNode", neighbourhoodHighlight);
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
